@@ -100,10 +100,10 @@ h5 {
         left: 0;
         right: 0;
         z-index: 1; }
-        .header__toggler:checked ~ .nav:checked + .header__toggler-label {
-          width: 16px;
-          height: 16px;
-          background-image: url("../images/close.svg"); } }
+      .header__toggler:checked + .header__toggler-label {
+        width: 16px;
+        height: 16px;
+        background-image: url("../images/close.svg"); } }
   .header__phone_button:hover, .header__toggler-label:hover {
     cursor: pointer; }
   @media screen and (max-width: 999px) {
