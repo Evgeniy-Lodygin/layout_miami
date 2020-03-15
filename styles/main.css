@@ -48,31 +48,29 @@ h5 {
     left: 0;
     right: 0; }
   .header__top {
-    position: absolute;
-    top: 24px;
-    left: 0;
-    right: 0;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
-    color: white; }
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    color: white;
+    padding-top: 56px; }
     @media (max-width: 999px) {
       .header__top {
-        top: 43px;
-        left: 43px;
-        right: 43px; } }
-  .header__toggle_button {
+        padding: 56px 45px; } }
+  .header__toggler-label {
     display: none;
     width: 18px;
     height: 12px;
     background-image: url("../images/toggler.png"); }
     @media (max-width: 999px) {
-      .header__toggle_button {
+      .header__toggler-label {
         display: inline-block;
-        z-index: 1; } }
+        z-index: 2; } }
   .header__phone_button {
     display: none;
     width: 18px;
@@ -86,15 +84,30 @@ h5 {
     @media (max-width: 999px) {
       .header__toggler:checked + .nav {
         display: block;
+        position: fixed;
         top: 0;
         bottom: 0;
         left: 0;
-        right: 0; } }
-  .header__phone_button:hover, .header__toggle_button:hover {
+        right: 0;
+        z-index: 1; }
+        .header__toggler:checked + .nav .mobile_phone,
+        .header__toggler:checked + .nav .mobile_action {
+          display: inline-block;
+          margin-top: 20px;
+          margin-left: 50px;
+          font-size: 12px;
+          line-height: 16px;
+          font-style: normal;
+          letter-spacing: 2px; }
+        .header__toggler:checked + .nav .mobile_action {
+          color: white;
+          text-decoration: none;
+          border-bottom: 1px white solid;
+          text-transform: uppercase;
+          padding: 8px 0; } }
+  .header__phone_button:hover, .header__toggler-label:hover {
     cursor: pointer; }
   .header__phone, .header__action {
-    position: relative;
-    top: 56px;
     letter-spacing: 2px; }
     @media screen and (max-width: 999px) {
       .header__phone, .header__action {
@@ -137,7 +150,7 @@ h5 {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  z-index: 1; }
+  z-index: 2; }
 
 .nav {
   color: black;
@@ -161,8 +174,7 @@ h5 {
             -ms-flex-direction: column;
                 flex-direction: column;
         text-transform: uppercase;
-        margin-left: auto;
-        padding-top: 300px; } }
+        padding-top: 150px; } }
   .nav__item {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -173,12 +185,18 @@ h5 {
     color: white;
     font-size: 12px;
     line-height: 16px;
-    letter-spacing: 2px; }
+    letter-spacing: 2px;
+    -webkit-transition: color 0.2s background-color 0.2s;
+    transition: color 0.2s background-color 0.2s; }
+    .nav__item:hover {
+      color: #9fadc2;
+      background-color: rgba(255, 255, 255, 0.1); }
     @media (max-width: 999px) {
       .nav__item {
+        margin-bottom: 32px;
         font-size: 22px;
         line-height: 22px;
-        font-weight: 700; } }
+        font-weight: 500; } }
     .nav__item_active {
       background: rgba(255, 255, 255, 0.1); }
       @media (max-width: 999px) {
@@ -195,6 +213,10 @@ h5 {
     .nav__link:focus {
       -webkit-box-shadow: 0 0 1px 1px #4d90f0;
               box-shadow: 0 0 1px 1px #4d90f0; }
+
+.mobile_phone,
+.mobile_action {
+  display: none; }
 
 .section {
   padding: 100px calc(50% - 470px);
@@ -342,8 +364,7 @@ h5 {
   margin-top: 30px;
   margin-bottom: 50px; }
   .consultation__text {
-    width: 412px;
-    margin-right: 121px; }
+    max-width: 412px; }
   .consultation__paragraph {
     line-height: 27px;
     color: #3e3e3e; }
@@ -351,8 +372,8 @@ h5 {
     font-size: 24px;
     line-height: 30px;
     margin-bottom: 16px;
-    margin-right: 141px;
-    color: #0075ff; }
+    color: #0075ff;
+    max-width: 300px; }
   .consultation__form {
     width: 412px; }
 
